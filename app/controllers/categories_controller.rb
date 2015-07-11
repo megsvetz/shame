@@ -33,7 +33,7 @@ before_action :find_category, only: [:edit, :update, :destroy, :show]
   end
 
   def show
-    
+    @cat_posts = Post.where(category_id: params[:id])
   end
 
   def destroy

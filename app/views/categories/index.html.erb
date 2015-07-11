@@ -1,3 +1,10 @@
-<% @categories.each do |c| %>
-<%= c.title %>
-<%= c.pic%>
+<h1>All Categories</h1>
+
+<div class="row text-center">
+  <% @categories.each do |c| %>
+    <div class="col-sm-6 col-md-4 portfolio-item">
+        <a href="#"><%= image_tag(c.cat_pic.url) %></a>
+        <h3><a href="#"><%=link_to c.title, category_path(c.id) %></a></h3>
+    </div>
+  <% end %>
+</div>
