@@ -1,2 +1,15 @@
 <h1>Posts show</h1>
 
+<%= image_tag @post.post_pic(:medium) %>
+<h3><%= @post.name %></h3>
+<p><%= @post.description %></p>
+<h3><a href="#"><%= link_to 'edit', edit_post_path(@post.id) %></a></h3>
+<%= link_to '<button type="button" class="btn">Back</button>'.html_safe, posts_path %>
+
+
+
+
+
+
+
+
