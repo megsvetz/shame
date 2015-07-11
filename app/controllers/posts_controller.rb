@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :destroy]
-<<<<<<< HEAD
   before_action :find_category
-=======
->>>>>>> cbce73968ad0fec56287fc7ca383b3519337dc22
   before_action :authenticate_user! 
  
   def index
@@ -18,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     @post = Post.create(post_params)
     if @post.save
       flash[:notice]="Post was created succesfully!"
