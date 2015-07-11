@@ -23,7 +23,8 @@
               <li><%= link_to('Edit profile', edit_user_registration_path(current_user) ) %></li>
             </ul>
           </li>
-          <li><%= link_to('Shamey', categories_path) %></li>
+          <li><%= link_to('Shamey: All Categories', categories_path) %></li>
+          <li><%= link_to('Create New Category', new_category_path) %></li>
           <li class="header-font"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'header-font' %></li>
         <% else %>
           <li class="header-font"><%= link_to "Login", new_user_session_path, :class => 'header-font' %></li>

@@ -1,11 +1,14 @@
-<h1 class="text-center">All Categories</h1>
-<button class="btn btn-info btn-lg"><%= link_to('New', new_category_path) %></button>
+<div class="container text-center">
+  <h1>All Categories</h1><br>
 
-<div class="row text-center">
-  <% @categories.each do |c| %>
-    <div class="col-sm-6 col-md-4 portfolio-item">
-        <a href="#"><%= image_tag(c.cat_pic.url) %></a>
-        <h3><a href="#"><%=link_to c.title, category_path(c.id) %></a></h3>
-    </div>
-  <% end %>
+  <div class="row text-center">
+    <% @categories.each do |c| %>
+      <div class="col-sm-6 col-md-4 portfolio-item box">
+          <%= link_to(image_tag(c.cat_pic.url(:medium), :class => "img-responsive img-center img-thumbnail"), category_path(c.id))%>
+          <h3><%=link_to c.title, category_path(c.id), :style => "color:black;text-decoration:underline;" %></h3>
+      </div>
+    <% end %>
+  </div>
+  <br>
 </div>
+<br>

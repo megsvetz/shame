@@ -31,8 +31,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-    # @categories = Category.all
+    @user = current_user
+    @posts = @user.posts.all
   end
 
   private
