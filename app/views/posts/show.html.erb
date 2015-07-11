@@ -1,15 +1,12 @@
-<h1>Posts show</h1>
+<div class="container text-center">
+  <h1 class="sign-up"><%= @post.category.title %></h1>
 
-<%= image_tag @post.post_pic(:medium) %>
-<h3><%= @post.name %></h3>
-<p><%= @post.description %></p>
-<h3><a href="#"><%= link_to 'edit', edit_post_path(@post.id) %></a></h3>
-<%= link_to '<button type="button" class="btn">Back</button>'.html_safe, posts_path %>
-
-
-
-
-
-
-
-
+  <%= image_tag @post.post_pic(:medium) %>
+  <h3><%= @post.name %></h3>
+  <p><%= @post.description %></p>
+  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default" %>
+  <%= link_to 'Back to Category', category_path(@post.category_id), class: "btn btn-default" %>
+  <%= link_to category_path(@post.category_id), class: "btn btn-default" do %>
+    <h3>hi</h3>
+    <% end %>
+</div><br>
