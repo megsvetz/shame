@@ -1,7 +1,11 @@
 class CategoriesController < ApplicationController
 before_action :find_category, only: [:edit, :update, :destroy, :show]
   def index
-    @categories = Category.all
+    if params[:search]
+      @categories = Category.where("title ilike ?", "%#{params[:search]}%" ).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    else
+      @categories = Category.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   def new

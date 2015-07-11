@@ -1,6 +1,36 @@
 <div class="container text-center">
   <h1 class="sign-up">New Post</h1>
-  <%= render 'form' %>
+  <div>
+    <%= form_for @post, url: posts_path, style:"text-block=center" do |f| %>
+      <div class="form_group">
+        <%= f.label(:name, class: 'form-label') %>
+        <%= f.text_field(:name, class: 'form-control') %>
+      </div>
+      <br>
+      <div class="form_group">
+        <%= f.label(:category, class: 'form-label') %><br>
+        <%= select("post", "category_id", Category.all.collect {|p| [ p.title, p.id ] }, { include_blank: true }) %>
+      </div>
+      <br>
+      <div class="form_group">
+        <%= f.label(:description, class: 'form-label') %>
+        <%= f.text_field(:description, class: 'form-control') %>
+      </div>
+      <br>
+      <div class="form_group">
+          <%= f.file_field :post_pic %>
+      </div>
+      <% f.hidden_field :category_id, value: @post.category_id %>
+      <% f.hidden_field :user_id, value: current_user.id %>
+      <br>
+      <div class="form_group">
+        <%= f.submit('Post', :style => "margin-right:10%;") %>
+        <%= link_to '<button type="button">Back</button>'.html_safe, category_path(@category.id), :style => "color:black;" %>
+      </div>
+      <br>
+    <% end %>
+    <br>
+  </div>
 
 </div>
 
