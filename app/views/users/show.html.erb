@@ -1,17 +1,12 @@
-user.post
-
-<%= link_to 'Back', root_path, :style => "display:inline-block" %>
-
-<div class="text-center">
+<div class="container text-center">
+  <h1 class="sign-up">My Posts</h1>
   <br/>
-  <% @user.posts.each do |post| %>
-
+  <%= @user.posts.each do |post| %>
     <% if post.post_pic.present? %>
       <%= image_tag(post_pic.url(:medium), :class => "img-responsive img-center img-thumbnail") %>
     <% end %>
     <h1>post.name</h1>
     <h3>post.desciption</h3>
-
     <div>
       <%= link_to 'Edit Post', edit_category_post_path(post.category_id, post.id), :style => "display:inline-block" %>
       <%= link_to 'Delete Post', category_post_path(post.category_id, post.id), :style => "display:inline-block" %>
