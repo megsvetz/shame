@@ -46,8 +46,8 @@ class PostsController < ApplicationController
   end
 
 private
-  def goal_params
-    params.require(:goal).permit(:title, :completed, :category_id, :goal_pic, :user_id, :state_code, :country_code)
+  def post_params
+    params.require(:post).permit(:title, :completed, :category_id, :goal_pic, :user_id, :state_code, :country_code)
   end
 
   def find_goal
