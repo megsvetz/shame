@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     # @categories = Category.all
