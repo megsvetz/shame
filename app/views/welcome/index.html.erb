@@ -1,9 +1,11 @@
 <div class="monkey_header text-center">
   <h1>SHAME</h1>
   <h3>the site that allows you to laugh at the dumb shameful things humanity does</h3>
-  
-  <%= link_to 'LOGIN', new_user_session_path, :class => "btn btn-default", :style => "margin-right: 5%; margin-bottom:10%;padding-right:1%;padding-left:1%;" %>
-  <%= link_to 'SIGN UP!', new_user_registration_path, :class => "btn btn-default", :style => "margin-bottom:10%;padding-left:1%;padding-right:1%;" %>
+  <% if user_signed_in? %>
+  <% else %>
+    <%= link_to 'LOGIN', new_user_session_path, :class => "btn btn-default", :style => "margin-right: 5%; margin-bottom:10%;padding-right:1%;padding-left:1%;" %>
+    <%= link_to 'SIGN UP!', new_user_registration_path, :class => "btn btn-default", :style => "margin-bottom:10%;padding-left:1%;padding-right:1%;" %>
+  <% end %>
 </div>
 <br>
 <div class="text-center container">
