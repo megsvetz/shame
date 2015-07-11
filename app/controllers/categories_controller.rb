@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-before_action :find_category, :only [:edit, :update, :destroy]
+before_action :find_category, only: [:edit, :update, :destroy, :show]
   def index
     @categories = Category.all
   end
@@ -9,7 +9,8 @@ before_action :find_category, :only [:edit, :update, :destroy]
   end
 
   def create
-    if @category.create
+    @category = Category.create(category_params)
+    if @category.save
       flash[:notice]="Category created!"
       redirect_to(category_path(@category.id))
     else
@@ -22,7 +23,7 @@ before_action :find_category, :only [:edit, :update, :destroy]
   end
 
   def update
-    if @category.update
+    if @category.update(category_params)
       flash[:notice]="Category updated!"
       redirect_to(category_path(@category.id))
     else
