@@ -4,6 +4,8 @@
     <div class="col-sm-6 col-md-4 portfolio-item">
         <a href="#"><%= image_tag(p.post_pic.url) %></a>
         <h3><a href="#"><%= p.name %></a></h3>
+        <%= link_to("bad.png", post_good_path(p.id)) %>
+        <%= link_to("good.png", post_bad_path(p.id)) %>
     </div>
   <% end %>
 </div>
