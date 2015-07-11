@@ -1,10 +1,13 @@
+
 <h1>Posts</h1>
+<h2><%= link_to 'New', new_post_path %></h2>
 <div class="row text-center">
  <% @posts.each do |post| %>
    <div class="col-sm-6 col-md-4 portfolio-item">
        <a href="#"><%= image_tag(post.post_pic.url) %></a>
-       <h3><a href="#"><%= link_to post.name, category_post_path(@category.id, post.id) %></a></h3>
-       <h3><a href="#"><%= link_to 'edit', edit_category_post_path(@category.id, post.id) %></a></h3>
+       <h3><a href="#"><%= link_to post.name, post_path(post.id) %></a></h3>
+       <p><%= post.description %></p>
+       <h3><a href="#"><%= link_to 'edit', edit_post_path(post.id) %></a></h3>
    </div>
  <% end %>
 </div>
