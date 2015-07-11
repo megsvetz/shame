@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :destroy]
-  before_action :find_category
+  before_action :find_category, except: [:create, :show]
   before_action :authenticate_user! 
  
   def index
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(category: @category)
   end
 
   def create
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     if @post.save
       flash[:notice]="Post was created succesfully!"
-      redirect_to posts_path
+      redirect_to category_path(@post.category_id)
     else
       flash[:error]="Post was not created."
       render :new

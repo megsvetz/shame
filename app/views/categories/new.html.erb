@@ -1,15 +1,16 @@
-<h1>Add Category</h1>
-<div class="form">
-  <%= form_for(@category) do |c| %>
-  <div>
-    <h3>Name <%= c.text_field :title %></h3>
-    <h3>Picture <%= c.file_field :cat_pic %></h3>
-    <%= c.submit "Save", class:"myButton" %>
+<div class="container text-center">
+  <h1 class="sign-up">Add Category</h1>
+  <div class="form">
+    <%= form_for(@category) do |c| %>
+    <div>
+      <h3>Name</h3>
+      <%= c.text_field :title, :style => "width:50%;" %>
+      <h3>Picture</h3>
+      <%= c.file_field :cat_pic, :style => "margin-left:auto; margin-right:auto;" %><br>
+      <%= c.submit "Save", class:"myButton" %>
+    </div>
+    <br>
+    <% end %>
   </div>
-  <% end %>
 </div>
-
-
-
-
-
+<br><br><br><br>
