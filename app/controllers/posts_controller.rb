@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:edit, :update, :show, :destroy]
+  before_action :find_post, only: [:edit, :update, :show, :destroy, :rating_count]
   before_action :find_category, except: [:create, :show]
   before_action :authenticate_user! 
  

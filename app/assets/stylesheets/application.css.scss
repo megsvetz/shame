@@ -19,6 +19,12 @@
  *= require_self
  */
 
+.banana-vote {
+  img {
+    max-width: 25px;
+  }
+}
+
 body h2{
   font-family: 'Sigmar One', cursive;
 }
