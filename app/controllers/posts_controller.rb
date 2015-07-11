@@ -47,13 +47,13 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:title, :completed, :category_id, :goal_pic, :user_id, :state_code, :country_code)
+    params.require(:post).permit(:name, :description, :category_id, :rating, :post_pic)
   end
 
-  def find_goal
-    @goal = Goal.find_by(id: params[:id])
-    unless @goal
-      render(text: "Goal not found.", status: :not_found)
+  def find_post
+    @post = Post.find_by(id: params[:id])
+    unless @post
+      render(text: "Post not found.", status: :not_found)
     end
   end
 
@@ -61,4 +61,3 @@ private
     @category = Category.find(params[:category_id])
   end
 end
-
