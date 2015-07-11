@@ -1,0 +1,10 @@
+<h1>Edit Category</h1>
+<div class="form">
+  <%= form_for(@category) do |c| %>
+  <div>
+    <h3>Name <%= c.text_field :title %></h3>
+    <h3>Picture <%= c.file_field :cat_pic %></h3>
+    <%= c.submit "Save", class:"myButton" %>
+  </div>
+  <% end %>
+</div>
