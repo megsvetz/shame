@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+.monkey_header {
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("monkeys.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.monkey_header h1{
+  color:white;
+  padding-top:5%;
+  padding-bottom:2%;
+  font-size:6vmax;
+  text-align:center;
+}
+.monkey_header h3{
+  color:white;
+  padding-bottom:5%;
+  text-align:center;
+}
