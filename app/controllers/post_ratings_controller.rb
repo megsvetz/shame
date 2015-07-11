@@ -1,13 +1,18 @@
 class PostRatingsController < ApplicationController
 before_action :find_post
 before_action :authenticate_user!
+# responds_to :html, :js
   def good
-    @post_good = @post.post_ratings.create(like: true, user: current_user)
+    @post.post_ratings.create(like: true, user: current_user)
+    @post.reload
+    @post_total =  @post.post_ratings.total_count
     redirect_to(category_path(@post.category_id))
   end
 
   def bad
-    @post_bad = @post.post_ratings.create(like: false, user: current_user)
+    @post.post_ratings.create(like: false, user: current_user)
+    @post.reload
+    @post_total =  @post.post_ratings.total_count
     redirect_to(category_path(@post.category_id))
   end
 

@@ -10,7 +10,7 @@
           <p>
             <div class="row banana-vote">
             <%= link_to(image_tag("good.png"), post_good_path(p.id), method: "post") %>
-            <%= p.post_ratings.total_count %>
+            <span class="number"><%= p.post_ratings.total_count %></span>
             <%= link_to(image_tag("bad.png"), post_bad_path(p.id), method: "post") %>
             </div>
           </p>
