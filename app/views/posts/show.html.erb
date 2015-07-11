@@ -6,7 +6,5 @@
   <p><%= @post.description %></p>
   <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default" %>
   <%= link_to 'Back to Category', category_path(@post.category_id), class: "btn btn-default" %>
-  <%= link_to category_path(@post.category_id), class: "btn btn-default" do %>
-    <h3>hi</h3>
-    <% end %>
+
 </div><br>

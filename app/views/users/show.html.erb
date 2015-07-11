@@ -1,15 +1,19 @@
-<div class="container text-center">
+<div class="container text-center" style="min-height:650px">
   <h1 class="sign-up">My Posts</h1>
   <br/>
-  <%= @user.posts.each do |post| %>
-    <% if post.post_pic.present? %>
-      <%= image_tag(post_pic.url(:medium), :class => "img-responsive img-center img-thumbnail") %>
-    <% end %>
-    <h1>post.name</h1>
-    <h3>post.desciption</h3>
-    <div>
-      <%= link_to 'Edit Post', edit_category_post_path(post.category_id, post.id), :style => "display:inline-block" %>
-      <%= link_to 'Delete Post', category_post_path(post.category_id, post.id), :style => "display:inline-block" %>
+  <% @user.posts.each do |post| %>
+    <div class="col-sm-6 col-md-4 portfolio-item" style="350px">
+      <div class="well">
+        <% if post.post_pic.present? %>
+          <%= image_tag(post.post_pic.url(:thumb), :class => "img-responsive img-center img-thumbnail") %>
+        <% end %>
+        <h2><%= post.name %></h2>
+        <h4><%= post.description %></h4>
+        <div><br>
+          <%= link_to 'Edit Post', edit_post_path(post.id), :style => "display:inline-block", class: "btn btn-default" %>
+          <%= link_to 'Delete Post', post_path(post.id), :style => "display:inline-block", method: :delete, class: "btn btn-default" %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
