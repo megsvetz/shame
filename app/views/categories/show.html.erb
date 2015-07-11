@@ -1,0 +1,9 @@
+<h1><%= @category.title %></h1>
+ <div class="row text-center">
+  <% @cat_posts.each do |p| %>
+    <div class="col-sm-6 col-md-4 portfolio-item">
+        <a href="#"><%= image_tag(p.post_pic.url) %></a>
+        <h3><a href="#"><%= p.name %></a></h3>
+    </div>
+  <% end %>
+</div>
