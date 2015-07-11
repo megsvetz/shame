@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :destroy]
-  before_action :find_category 
+  before_action :find_category
   before_action :authenticate_user! 
  
   def index
@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -16,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @category.posts.build(post_params)
+    @post = Post.create(post_params)
     if @post.save
       flash[:notice]="Post was created succesfully!"
       redirect_to( category_posts_path(@category.id) )
