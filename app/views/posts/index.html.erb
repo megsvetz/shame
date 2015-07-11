@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Posts</h1>
+<div class="row text-center">
+ <% @posts.each do |post| %>
+   <div class="col-sm-6 col-md-4 portfolio-item">
+       <a href="#"><%= image_tag(post.post_pic.url) %></a>
+       <h3><a href="#"><%= link_to post.name, category_post_path(@category.id, post.id) %></a></h3>
+       <h3><a href="#"><%= link_to 'edit', edit_category_post_path(@category.id, post.id) %></a></h3>
+   </div>
+ <% end %>
+</div>
