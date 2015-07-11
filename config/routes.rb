@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
         registrations: 'users/registrations' }
-
+  
   resources :users, only: [:index, :show, :edit, :update]
   
   resources :categories 
-  resources :posts
-
+  resources :posts do
+    post '/good', to: 'post_ratings#good', as: :good
+    post '/bad', to: 'post_ratings#bad', as: :bad
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

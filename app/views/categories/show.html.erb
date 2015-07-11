@@ -7,6 +7,13 @@
       <div class="col-sm-6 col-md-4 portfolio-item well">
           <%= link_to (image_tag(p.post_pic.url(:thumb), :class => "img-responsive img-center img-thumbnail")), post_path(p) %>
           <h3><%= link_to p.name, post_path(p), :style => "color:black" %></h3>
+          <p>
+            <div class="row banana-vote">
+            <%= link_to(image_tag("good.png"), post_good_path(p.id), method: "post") %>
+            <span class="number"><%= p.post_ratings.total_count %></span>
+            <%= link_to(image_tag("bad.png"), post_bad_path(p.id), method: "post") %>
+            </div>
+          </p>
       </div>
     <% end %>
     <br>
